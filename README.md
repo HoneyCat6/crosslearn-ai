@@ -1,10 +1,91 @@
 # CrossLearn AI — seeded demo release
 
-Start **run-m4.cmd**, open **http://127.0.0.1:8000/** and use credentials from `api/.demo-access.json`. Select the **M4 showcase** class for populated histories, recommendations and evaluation reports. See [M4 walkthrough and remaining limits](docs/M4.md). Browser QA and full M3 research readiness remain outstanding.
+To run the populated showcase locally, use **`run-m4.cmd`**, open **http://127.0.0.1:8000/** and use credentials from `api/.demo-access.json`. Select the **M4 showcase** class for populated histories, recommendations and evaluation reports. See [M4 walkthrough and remaining limits](docs/M4.md). Browser QA and full M3 research readiness remain outstanding.
 
-**M2 is now available with FastAPI + PostgreSQL.** Double-click `run-m2.cmd`, then open **http://127.0.0.1:8000/**. Use locally generated credentials from `api/.demo-access.json`.
+**M2 is also available with FastAPI + PostgreSQL.** Use **`run-m2.cmd`** for the regular seeded demo, then open **http://127.0.0.1:8000/**. Both scripts generate credentials locally in `api/.demo-access.json`.
 
 See **[M2 setup, walkthrough and verification](docs/M2.md)** for the connected teacher/pupil workflow, model configuration and known limitations. The original standalone M1 instructions are retained below.
+
+## Run after cloning
+
+The repository contains source code and configuration examples, but not virtual environments, credentials or PostgreSQL data. Each contributor must install the prerequisites and create their own local configuration.
+
+The commands below are for Windows PowerShell. Run them from the cloned `crosslearn-ai` directory.
+
+### Option 1: Run the frontend-only M1 demo
+
+This option needs only Node.js and does not need Python, PostgreSQL or environment variables.
+
+1. Install [Node.js 24 or newer](https://nodejs.org/).
+2. Start the frontend:
+
+   ```powershell
+   cd web
+   npm.cmd run dev
+   ```
+
+3. Open **http://127.0.0.1:5173/**.
+
+The frontend uses the synthetic local-browser demo. `npm.cmd run build` creates the deployable static files in `web/dist`.
+
+### Option 2: Run the full M2/M4 demo
+
+The backend requires Python 3.12 or newer and PostgreSQL.
+
+1. Install:
+   - [Python 3.12 or newer](https://www.python.org/downloads/)
+   - [PostgreSQL](https://www.postgresql.org/download/windows/)
+   - Node.js 24 or newer if you also want to work on the frontend
+2. Create a PostgreSQL database named `crosslearn` and a dedicated local user. Do not use a superuser for the application.
+3. Create a virtual environment and install the backend dependencies:
+
+   ```powershell
+   python -m venv api/.venv
+   api/.venv/Scripts/python.exe -m pip install -r api/requirements.txt
+   ```
+
+   For a reproducible installation, use `api/requirements.lock.txt` instead.
+4. Create `api/.env` from `api/.env.example` and set `DATABASE_URL` to the connection string for the database created above. Keep `MODEL_PROVIDER=none` unless an approved, server-only model is deliberately configured.
+5. Apply migrations and seed synthetic accounts and content:
+
+   ```powershell
+   api/.venv/Scripts/python.exe -m alembic upgrade head
+   api/.venv/Scripts/python.exe -m app.seed
+   ```
+
+6. Start the application:
+
+   ```powershell
+   .\run-m2.cmd
+   ```
+
+   Or use `.\run-m4.cmd` for the populated M4 showcase data.
+7. Open **http://127.0.0.1:8000/**. Read the generated usernames and passwords from `api/.demo-access.json`.
+
+If a startup check fails, confirm that PostgreSQL is running, `api/.env` points to the correct database, and port 8000 is available. See [api/SETUP.md](api/SETUP.md) and [docs/M2.md](docs/M2.md) for detailed setup and verification.
+
+### Run the tests
+
+Frontend tests:
+
+```powershell
+cd web
+npm.cmd test
+npm.cmd run build
+```
+
+Backend tests:
+
+```powershell
+cd ..\api
+.venv\Scripts\python.exe -m pytest -q
+```
+
+Backend tests use PostgreSQL and require a configured test-capable database user. They create and remove isolated test schemas; do not run them against a production database.
+
+### Keep local files private
+
+Never commit `.env`, `api/.demo-access.json`, `api/.venv`, database backups, passwords or API keys. These paths are excluded by the repository's ignore files. The included accounts and data are synthetic demo data only.
 
 ## Original M1 demo
 
