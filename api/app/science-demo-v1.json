@@ -1,0 +1,186 @@
+{
+  "concepts": [
+    {
+      "id": "root",
+      "word": "ROOT",
+      "number": 1,
+      "row": 0,
+      "col": 2,
+      "direction": "down",
+      "clue": "A four-letter plant word. It rhymes with “boot”.",
+      "text": "Roots hold many plants in the soil. They take in water and minerals from the soil, helping the plant grow.",
+      "alt": "A plant with branching roots below the soil. Arrows show water moving from soil into the roots."
+    },
+    {
+      "id": "moss",
+      "word": "MOSS",
+      "number": 2,
+      "row": 1,
+      "col": 1,
+      "direction": "across",
+      "clue": "A four-letter plant word. It rhymes with “boss”.",
+      "text": "Moss is a small plant without flowers. It often grows in damp, shady places and takes in water through its surface.",
+      "alt": "Small moss plants form a green mat on a damp rock under shade. Water droplets reach the surface."
+    },
+    {
+      "id": "stem",
+      "word": "STEM",
+      "number": 3,
+      "row": 3,
+      "col": 1,
+      "direction": "across",
+      "clue": "A four-letter plant word. It rhymes with “gem”.",
+      "text": "A stem supports a plant’s leaves and flowers. It carries water from the roots to other parts of the plant.",
+      "alt": "A plant with its stem highlighted between roots and leaves. Upward arrows show water travelling through the stem."
+    }
+  ],
+  "baseline": [
+    {
+      "id": "root-pre-1-v1",
+      "concept": "root",
+      "stem": "Which part of many plants takes in water from the soil?",
+      "options": [
+        "Flower",
+        "Root",
+        "Leaf"
+      ],
+      "answer": 1,
+      "objective": "recognition"
+    },
+    {
+      "id": "root-pre-2-v1",
+      "concept": "root",
+      "stem": "A plant stays firmly in the soil on a windy day. Which part helps it stay in place?",
+      "options": [
+        "Petal",
+        "Fruit",
+        "Root"
+      ],
+      "answer": 2,
+      "objective": "application"
+    },
+    {
+      "id": "moss-pre-1-v1",
+      "concept": "moss",
+      "stem": "Which description best fits moss?",
+      "options": [
+        "A small plant without flowers",
+        "A tall flowering tree",
+        "A type of animal"
+      ],
+      "answer": 0,
+      "objective": "recognition"
+    },
+    {
+      "id": "moss-pre-2-v1",
+      "concept": "moss",
+      "stem": "Where would you most likely find moss growing?",
+      "options": [
+        "A dry, sunny desert",
+        "A damp, shady rock",
+        "Inside a hot oven"
+      ],
+      "answer": 1,
+      "objective": "application"
+    },
+    {
+      "id": "stem-pre-1-v1",
+      "concept": "stem",
+      "stem": "Which part supports the leaves of a plant?",
+      "options": [
+        "Seed",
+        "Root hair",
+        "Stem"
+      ],
+      "answer": 2,
+      "objective": "recognition"
+    },
+    {
+      "id": "stem-pre-2-v1",
+      "concept": "stem",
+      "stem": "Water moves from roots towards leaves. Which part carries it between them?",
+      "options": [
+        "Stem",
+        "Petal",
+        "Fruit"
+      ],
+      "answer": 0,
+      "objective": "application"
+    }
+  ],
+  "post": [
+    {
+      "id": "root-post-1-v1",
+      "concept": "root",
+      "stem": "What is one job of a plant’s roots?",
+      "options": [
+        "Making petals colourful",
+        "Taking in water and minerals",
+        "Producing sunlight"
+      ],
+      "answer": 1,
+      "objective": "recognition"
+    },
+    {
+      "id": "root-post-2-v1",
+      "concept": "root",
+      "stem": "A seedling has damaged roots. What may become more difficult?",
+      "options": [
+        "Absorbing water from soil",
+        "Seeing other plants",
+        "Making the soil brighter"
+      ],
+      "answer": 0,
+      "objective": "application"
+    },
+    {
+      "id": "moss-post-1-v1",
+      "concept": "moss",
+      "stem": "How does moss take in water?",
+      "options": [
+        "Only through flowers",
+        "Through its surface",
+        "Through a woody trunk"
+      ],
+      "answer": 1,
+      "objective": "recognition"
+    },
+    {
+      "id": "moss-post-2-v1",
+      "concept": "moss",
+      "stem": "A gardener wants a suitable place for moss. Which spot should they choose?",
+      "options": [
+        "A dry windowsill in full sun",
+        "A hot, dry path",
+        "A moist rock under a tree"
+      ],
+      "answer": 2,
+      "objective": "application"
+    },
+    {
+      "id": "stem-post-1-v1",
+      "concept": "stem",
+      "stem": "Which statement describes a stem?",
+      "options": [
+        "It supports leaves and carries water",
+        "It is always below the soil",
+        "It only makes seeds"
+      ],
+      "answer": 0,
+      "objective": "recognition"
+    },
+    {
+      "id": "stem-post-2-v1",
+      "concept": "stem",
+      "stem": "A flower has roots in water. How does water reach the flower above?",
+      "options": [
+        "Through the surrounding air only",
+        "Through its stem",
+        "Through its petals first"
+      ],
+      "answer": 1,
+      "objective": "application"
+    }
+  ],
+  "version": "science-demo-v1"
+}

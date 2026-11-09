@@ -1,0 +1,13 @@
+web/node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+.env
+*.log
+.npm-cache/
+api/.venv/
+api/.demo-access.json
+**/__pycache__/
+**/.pytest_cache/
+
+api/backups/
